@@ -1,0 +1,61 @@
+body {
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: normal;
+  margin: 0;
+}
+
+main {
+  max-width: 80vmin;
+  margin: auto;
+  max-height: 80vmin;
+  height: 70%;
+}
+
+.game__board {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 2px solid black;
+}
+
+.cell {
+  border: 2px solid black;
+  min-width: 25px;
+  min-height: 25px;
+  opacity: 0.6;
+  flex-grow: 1;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.control__panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.control__button {
+  height: 24px;
+  display: block;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 0.2rem;
+}
+
+.control__button--group {
+  display: flex;
+}
+
+.cell:hover,
+.cell:focus {
+  opacity: 0.3;
+}
