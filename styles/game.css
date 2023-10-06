@@ -25,11 +25,10 @@ main {
 
 .cell {
   border: 2px solid black;
-  /* min-width: 25px;
-  min-height: 25px; */
   padding: 0;
   opacity: 0.6;
   flex-grow: 1;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .row {
@@ -59,4 +58,45 @@ main {
 .cell:hover,
 .cell:focus {
   opacity: 0.3;
+}
+
+.current__player {
+  display: flex;
+}
+
+.player {
+  margin-left: 5px;
+}
+
+.board__field--circle {
+  background-image: url(../img/circle.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
+}
+
+.board__field--cross {
+  background-image: url(../img/cross.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
+}
+
+.cell:disabled {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.5);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+.board__field--circle,
+.board__field--cross {
+  animation: pulse 0.15s;
 }

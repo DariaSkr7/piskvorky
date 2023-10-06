@@ -6,17 +6,24 @@
     <title>Hra</title>
     <link rel="stylesheet" href="styles/common.css" />
     <link rel="stylesheet" href="styles/game.css" />
+    <script type="module" src="./js/game.js"></script>
   </head>
   <body>
     <main>
       <h1>Piskvorky</h1>
       <div class="control__panel">
-        <h2>HRAJE: O</h2>
+        <div class="current__player">
+          <h2>HRAJE:</h2>
+          <img src="./img/circle-white.svg" alt="Circle" class="player" />
+        </div>
         <div class="control__button--group">
           <a href="index.html" class="control__button button__primary">
             <img src="img/home.svg" alt="home"
           /></a>
-          <a href="game.html" class="control__button button__secondary">
+          <a
+            href="game.html"
+            class="control__button restart__button button__secondary"
+          >
             <img src="img/restart.svg" alt="restart"
           /></a>
         </div>
