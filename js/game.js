@@ -14,7 +14,7 @@ const whoIsWinner = () => {
     location.reload();
   }
   if (winner === 'tie') {
-    alert(`Hra scončila neroyhodně.`);
+    alert(`Hra scončila nerozhodně.`);
     location.reload();
   }
 };
