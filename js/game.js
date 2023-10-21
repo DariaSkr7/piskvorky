@@ -19,6 +19,36 @@ const whoIsWinner = () => {
   }
 };
 
+const cells = document.querySelectorAll('.cell');
+
+const aiPlay = async () => {
+  cells.forEach((cell) => {
+    cell.disabled = true;
+  });
+  const response = await fetch(
+    'https://piskvorky.czechitas-podklady.cz/api/suggest-next-move',
+    {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        board: gameBoard,
+        player: 'x',
+      }),
+    },
+  );
+  const data = await response.json();
+  const { x, y } = data.position;
+  cells.forEach((cell, index) => {
+    if (gameBoard[index] === '_') {
+      cell.disabled = false;
+    }
+  });
+  const field = cells[x + y * 10];
+  field.click();
+};
+
 const play = (event) => {
   event.target.classList.add(`board__field--${currentPlayer}`);
   event.target.disabled = true;
@@ -28,6 +58,7 @@ const play = (event) => {
   if (currentPlayer === 'circle') {
     currentPlayer = 'cross';
     gameBoard[index] = 'o';
+    aiPlay();
   } else {
     currentPlayer = 'circle';
     gameBoard[index] = 'x';
@@ -37,7 +68,6 @@ const play = (event) => {
   setTimeout(whoIsWinner, 200);
 };
 
-const cells = document.querySelectorAll('.cell');
 cells.forEach((cell, index) => {
   cell.id = index;
   cell.addEventListener('click', play);
